@@ -1,18 +1,63 @@
+@keyframes twinkling {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 .App {
   text-align: center;
   padding: 20px;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  position: relative;
+  z-index: 2;
+}
+
+.App::before {
+  content: '🎄';
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 40px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.App::after {
+  content: '🎅';
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 40px;
+  animation: bounce 2s ease-in-out infinite;
+  animation-delay: 1s;
 }
 
 .App-header {
   margin-bottom: 40px;
-  color: #2c3e50;
+  color: #fff;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  animation: twinkling 2s infinite;
 }
 
 .App-header h1 {
-  font-size: 2.5em;
+  font-size: 4em;
   margin-bottom: 10px;
+  background: linear-gradient(45deg, #ff0000, #00ff00, #ff0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .gifts-container {
@@ -25,13 +70,33 @@
 }
 
 .gift-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3),
+              0 0 40px rgba(0, 255, 0, 0.3),
+              inset 0 0 20px rgba(255, 255, 255, 0.5);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.gift-card:hover {
+  transform: translateY(-5px) rotateY(5deg);
+}
+
+.gift-card::before {
+  content: '🎁';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  font-size: 30px;
+  animation: bounce 1.5s ease-in-out infinite;
 }
 
 .gift-card h2 {
   margin-bottom: 15px;
-  color: #34495e;
+  color: #c41e3a;
+  font-size: 2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
