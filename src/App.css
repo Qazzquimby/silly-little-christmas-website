@@ -9,6 +9,10 @@
   50% { transform: translateY(-10px); }
 }
 
+body {
+  color: red;
+}
+
 .App {
   text-align: center;
   padding: 20px;
@@ -22,7 +26,7 @@
   position: fixed;
   top: 20px;
   left: 20px;
-  font-size: 40px;
+  font-size: 60px;
   animation: bounce 2s ease-in-out infinite;
 }
 
@@ -31,9 +35,48 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  font-size: 40px;
+  font-size: 60px;
   animation: bounce 2s ease-in-out infinite;
   animation-delay: 1s;
+}
+
+/* Additional festive decorations */
+.App > div::before {
+  content: '🎁';
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 50px;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+.App > div::after {
+  content: '🦌';
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  animation: bounce 2.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.App > span::before {
+  content: '⭐';
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  font-size: 40px;
+  animation: twinkling 1.5s infinite;
+}
+
+.App > span::after {
+  content: '⭐';
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  font-size: 40px;
+  animation: twinkling 1.5s infinite;
+  animation-delay: 0.75s;
 }
 
 .App-header {

@@ -19,27 +19,53 @@ body {
   overflow-x: hidden;
 }
 
-body::before {
+body::before,
+body::after,
+body > div::before,
+body > div::after,
+body > span::before,
+body > span::after {
   content: '❄';
   position: fixed;
-  font-size: 24px;
   color: white;
-  animation: snowfall 5s linear infinite;
-  z-index: 1;
   text-shadow: 
     2px 2px 4px rgba(255, 255, 255, 0.5),
     -2px -2px 4px rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  pointer-events: none;
 }
 
-body::after {
-  content: '❄';
-  position: fixed;
-  left: 50%;
-  font-size: 20px;
-  color: white;
-  animation: snowfall 7s linear infinite;
-  z-index: 1;
+body::before { left: 10%; font-size: 24px; animation: snowfall 5s linear infinite; }
+body::after { left: 20%; font-size: 20px; animation: snowfall 7s linear infinite 1s; }
+body > div::before { left: 30%; font-size: 22px; animation: snowfall 6s linear infinite 2s; }
+body > div::after { left: 40%; font-size: 18px; animation: snowfall 8s linear infinite 3s; }
+body > span::before { left: 60%; font-size: 26px; animation: snowfall 4s linear infinite 1.5s; }
+body > span::after { left: 80%; font-size: 21px; animation: snowfall 9s linear infinite 2.5s; }
+
+/* Additional snowflakes with different paths */
+@keyframes snowfallAlt {
+  0% { transform: translateY(-10vh) translateX(10vw) rotate(0deg); }
+  100% { transform: translateY(110vh) translateX(-10vw) rotate(360deg); }
 }
+
+.snow {
+  position: fixed;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.snow:nth-child(1) { left: 5%; font-size: 20px; animation: snowfallAlt 6s linear infinite; }
+.snow:nth-child(2) { left: 15%; font-size: 22px; animation: snowfall 7s linear infinite 0.5s; }
+.snow:nth-child(3) { left: 25%; font-size: 18px; animation: snowfallAlt 5s linear infinite 1s; }
+.snow:nth-child(4) { left: 35%; font-size: 24px; animation: snowfall 8s linear infinite 1.5s; }
+.snow:nth-child(5) { left: 45%; font-size: 19px; animation: snowfallAlt 9s linear infinite 2s; }
+.snow:nth-child(6) { left: 55%; font-size: 21px; animation: snowfall 6s linear infinite 2.5s; }
+.snow:nth-child(7) { left: 65%; font-size: 23px; animation: snowfallAlt 7s linear infinite 3s; }
+.snow:nth-child(8) { left: 75%; font-size: 20px; animation: snowfall 8s linear infinite 3.5s; }
+.snow:nth-child(9) { left: 85%; font-size: 22px; animation: snowfallAlt 5s linear infinite 4s; }
+.snow:nth-child(10) { left: 95%; font-size: 18px; animation: snowfall 9s linear infinite 4.5s; }
 
 * {
   box-sizing: border-box;

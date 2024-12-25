@@ -58,7 +58,7 @@ function App() {
       </header>
 
         <main className="gifts-container">
-            <h2>MEMO REGALOS :O !!</h2>
+            <h1>MEMO REGALOS :O !!</h1>
             {memoGifts.map(gift => (
                 <div key={gift.id} className="gift-card">
                     <h2>..? QUE ES ???</h2>
@@ -113,7 +113,8 @@ function App() {
             <p>...</p>
 
 
-            <h2>PALO REGALOS TAMBIEEEEEEEEEEEN &lt;(0_0&lt;) &lt;(0_0)&gt; (&gt;0_0)&gt;</h2>
+            <h1>PALO REGALOS TAMBIEEEEEEEEEEEN</h1>
+            <h1> &lt;(0_0&lt;) &lt;(0_0)&gt; (&gt;0_0)&gt;</h1>
 
                 {paloGifts.map(gift => (
                 <div key={gift.id} className="gift-card">
